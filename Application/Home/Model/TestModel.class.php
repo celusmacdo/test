@@ -23,8 +23,4 @@ class TestModel extends Model {
 	public function saveData($data){
         return $this->save($data);
     }
-	//删除
-	public function del(){
-        
-    }
 }
