@@ -3,10 +3,13 @@ namespace Home\Controller;
 use Think\Controller;
 class TestController extends Controller {
 	//首页
+	public function __construct(){
+		parent::__construct();
+	}
     public function index(){
-        $rs = D(CONTROLLER_NAME)->showData();
-		$this->assign('rs',$rs);
-        $this->display();
+			$rs = D(CONTROLLER_NAME)->showData();
+			$this->assign('rs',$rs);
+			$this->display();
     }
 	//添加
 	public function add(){
@@ -44,7 +47,7 @@ class TestController extends Controller {
     }
 	//删除
 	public function del(){
-			$rs=D(CONTROLLER_NAME)->delete(I('get.id'));
+			$rs=M(CONTROLLER_NAME)->delete(I('get.id'));
 			
 			if($rs>0){
 				$this->success('删除成功', 'index');
